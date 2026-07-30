@@ -11,6 +11,6 @@ export interface CartState {
 }
 
 export interface AddToCartPayload {
-    product: Product,
+    product: Product & {id: string},
     quantity?: number
 }
