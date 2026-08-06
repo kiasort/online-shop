@@ -1,16 +1,16 @@
-import type { Product } from "./product";
+import type { Product } from './product'
 
 export interface CartItem {
-    id?: string,
-    product: Product,
-    quantity: number
+  id?: string
+  product: Product
+  quantity: number
 }
 
 export interface CartState {
-    items: CartItem[]
+  items: CartItem[]
 }
 
 export interface AddToCartPayload {
-    product: Product & {id: string},
-    quantity?: number
+  product: Product & { id: string }
+  quantity?: number
 }
