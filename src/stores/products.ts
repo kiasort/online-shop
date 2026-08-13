@@ -20,7 +20,6 @@ export const useProductStore = defineStore('products', ()=>{
     const filters = ref<FilterState>(filterValue)
     const sortBy = ref<SortOption>('newest')
 
-    //GETTERS
 
     const filteredProducts = computed(() => {   
         let arrCopy = [...products.value]
@@ -87,7 +86,6 @@ export const useProductStore = defineStore('products', ()=>{
         return filteredProducts.value.length
     })
 
-    //ACTIONS
 
     async function fetchProducts() {
         loading.value = true
