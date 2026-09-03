@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import type { CartItem, CartState, AddToCartPayload } from "@/types";
+import type { CartItem, AddToCartPayload } from "@/types";
 import * as cartApi from  '../api/cart'
 
 
@@ -32,12 +32,12 @@ export const useCartStore = defineStore('cart', ()=>{
         try{
             items.value = await cartApi.getCart()
         }catch(e){
-            error.value = 'Не удалось загрузить в корзину' 
+            error.value = 'Не удалось загрузить в корзину'
             console.error('Ошибка корзины', e)
         }finally{
             loading.value=false
         }
-        
+
     }
 
     async function addToCart(payload: AddToCartPayload){
@@ -47,7 +47,7 @@ export const useCartStore = defineStore('cart', ()=>{
             const itemToAdd = items.value.find(item=>item.product.id === payload.product.id)
             if (itemToAdd?.id){
                 await  cartApi.updateCartItem(itemToAdd.id, {
-                     product: itemToAdd.product,
+                    product: itemToAdd.product,
                     quantity: itemToAdd.quantity + (payload.quantity || 1)
                 })
             }else{
@@ -63,7 +63,7 @@ export const useCartStore = defineStore('cart', ()=>{
         }finally{
             loading.value = false
         }
-        
+
    }
 
    async function removeFromCart (productId: string): Promise<void>{
@@ -81,13 +81,13 @@ export const useCartStore = defineStore('cart', ()=>{
         }finally{
             loading.value = false
         }
-        
+
    }
 
    async function updateQuantity(productId: string, quantity: number){
         loading.value = true
-        error.value = null    
-        try{  
+        error.value = null
+        try{
             const itemToUpdate = items.value.find(item => item.product.id===productId)
         if (itemToUpdate?.id){
             if (quantity > 0){
@@ -112,7 +112,7 @@ export const useCartStore = defineStore('cart', ()=>{
         loading.value = true
         error.value = null
         try{
-            
+
             await cartApi.clearCartApi()
             await fetchCartItems()
         }catch(e){
