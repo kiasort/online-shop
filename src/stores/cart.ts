@@ -129,6 +129,7 @@ export const useCartStore = defineStore('cart', ()=>{
         total,
         loading,
         error,
+        fetchCartItems,
         addToCart,
         removeFromCart,
         updateQuantity,

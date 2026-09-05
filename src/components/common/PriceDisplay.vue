@@ -7,6 +7,7 @@ interface Props {
   currency: string
   size: 'sm' | 'md' | 'lg'
   oldPrice: number | null
+  label?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -14,6 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   currency: '₽',
   size: 'md',
   oldPrice: null,
+  label: ''
 })
 
 const formattedOldPrice = computed(()=>{
