@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 interface Props{
-    modelValue: string | number
+    modelValue?: string | number
     label: string
     type?: 'text' | 'email' | 'tel' | 'password' |'number'
     placeholder?: string
     error?: string
-    disabled: boolean
+    disabled?: boolean
     required?: boolean
 }
 
@@ -49,8 +49,8 @@ const inputClasses = computed(() => [
             {{ props.label }}
             <span v-if="props.required" class="app-input__required">*</span>
         </label>
-        
-        <input 
+
+        <input
         :type="props.type"
         :value="props.modelValue"
         :placeholder = "props.placeholder"
