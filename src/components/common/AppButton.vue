@@ -51,7 +51,7 @@ const handleClick = function (event: MouseEvent) {
   </button>
 </template>
 
-<style scoped lang="сss">
+<style scoped>
 .app-button{
     display: inline-flex;
     align-items: center;

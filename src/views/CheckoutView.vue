@@ -74,6 +74,7 @@ const total = computed(() => subtotal.value + shippingCost.value);
               <option value="cash">Наличные</option>
             </select>
           </section>
+            <AppButton class="submit-btn" type="submit">Подтвердить заказ</AppButton>
 
         </form>
 
@@ -92,7 +93,6 @@ const total = computed(() => subtotal.value + shippingCost.value);
               <span>Итого:</span>
               <span>{{ total }} ₽</span>
             </div>
-            <AppButton type="submit">Подтвердить заказ</AppButton>
           </div>
 
           <router-link to="/cart">
